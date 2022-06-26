@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-900 text-gray-100;
+  -webkit-font-smoothing: antialiased;
+}
+
+.default-lesson {
+  @apply rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 transition-colors;
+}
+
+.active-lesson {
+  @apply default-lesson;
+  @apply bg-green-500;
+}
+
+.default-lesson-type {
+  @apply text-xs rounded px-2 py-[2px] text-white border border-green-300 font-bold;
+}
+
+.active-lesson-type {
+  @apply default-lesson-type;
+  @apply border-white;
+}
