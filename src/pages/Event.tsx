@@ -1,6 +1,8 @@
+import { PlayCircle } from "phosphor-react";
 import { useParams } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { Placeholder } from "../components/Placeholder";
 import { Sidebar } from "../components/Sidebar";
 import { Video } from "../components/Video";
 
@@ -12,15 +14,14 @@ export function Event() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex flex-1">
-        {/* TODO: create placeholder when theres no slug
-            something like "click aside to select a lesson"
-            or load first lesson automatically
-        */}
-
-        { slug 
-          ? <Video lessonSlug={slug} /> 
-          : <div className="flex-1" /> 
+        { !slug && 
+          <Placeholder 
+            text="Escolha uma aula ao lado"
+            icon={<PlayCircle size={40} />}
+          />
         }
+
+        { slug && <Video lessonSlug={slug} /> }
         <Sidebar />
       </main>
       <Footer />
